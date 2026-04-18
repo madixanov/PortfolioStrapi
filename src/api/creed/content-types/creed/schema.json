@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "creeds",
+  "info": {
+    "singularName": "creed",
+    "pluralName": "creeds",
+    "displayName": "Creed"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    }
+  }
+}
