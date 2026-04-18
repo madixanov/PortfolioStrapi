@@ -55,15 +55,15 @@
     },
     "skills": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::skill.skill",
-      "mappedBy": "project"
+      "mappedBy": "projects"
     },
     "tasks": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::task.task",
-      "mappedBy": "project"
+      "mappedBy": "projects"
     },
     "images": {
       "type": "component",
