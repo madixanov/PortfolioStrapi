@@ -1,28 +1,23 @@
-import type { Core } from '@strapi/strapi';
-
-const config: Core.Config.Middlewares = [
+export default [
   'strapi::errors',
+  'strapi::security',
   {
     name: 'strapi::cors',
     config: {
       origin: [
-        'http://localhost:3000',
-        'https://ykdev.netlify.app',
+        'http://localhost:3000', // Для локальной разработки
+        'https://ykdev.netlify.app' // Ваш домен на Netlify
       ],
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-      headers: '*',
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      keepHeaderOnError: true,
     },
   },
-  'strapi::logger',
-  'strapi::errors',
-  'strapi::security',
-  'strapi::cors',
   'strapi::poweredBy',
+  'strapi::logger',
   'strapi::query',
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
 ];
-
-export default config;
