@@ -817,7 +817,12 @@ export interface ApiMajorMajor extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    content: Schema.Attribute.String;
+    content: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -865,7 +870,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::experience.experience'
     >;
-    images: Schema.Attribute.Component<'shared.media', true> &
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

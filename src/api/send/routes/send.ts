@@ -2,8 +2,8 @@ export default {
   routes: [
     {
       method: "POST",
-      path: "/contact/send",
-      handler: "contact.send",
+      path: "/send",
+      handler: "send.send",
       config: {
         auth: false,
       },

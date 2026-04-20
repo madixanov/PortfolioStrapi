@@ -65,16 +65,6 @@
       "target": "api::task.task",
       "mappedBy": "projects"
     },
-    "images": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.media",
-      "repeatable": true
-    },
     "links": {
       "type": "component",
       "pluginOptions": {
@@ -84,6 +74,21 @@
       },
       "component": "shared.links",
       "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
