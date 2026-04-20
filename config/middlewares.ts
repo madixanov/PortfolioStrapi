@@ -1,12 +1,26 @@
 export default [
   'strapi::errors',
-  'strapi::security',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'connect-src': ["'self'", 'https:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'https://stable-treasure-74ea67fec0.strapiapp.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'https://stable-treasure-74ea67fec0.strapiapp.com'],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
   {
     name: 'strapi::cors',
     config: {
       origin: [
-        'http://localhost:3000', // Для локальной разработки
-        'https://ykdev.netlify.app' // Ваш домен на Netlify
+        'https://ykdev.netlify.app', 
+        'http://localhost:3000', 
+        'https://stable-treasure-74ea67fec0.strapiapp.com'
       ],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
@@ -14,7 +28,6 @@ export default [
     },
   },
   'strapi::poweredBy',
-  'strapi::logger',
   'strapi::query',
   'strapi::body',
   'strapi::session',
